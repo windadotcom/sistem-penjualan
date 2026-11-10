@@ -27,7 +27,7 @@
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
 
             {{-- Pendapatan --}}
-            <div class="stat-card border-l-4 border-emerald-500">
+            <div class="stat-card border-l-4 border-blue-500">
                 <div class="flex items-start justify-between">
                     <div>
                         <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Total Pendapatan</p>
@@ -35,13 +35,13 @@
                             Rp {{ number_format($revenue, 0, ',', '.') }}
                         </p>
                     </div>
-                    <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
-                        <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
                 </div>
-                <p class="text-xs text-emerald-600 font-medium mt-2">Semua transaksi</p>
+                <p class="text-xs text-blue-600 font-medium mt-2">Semua transaksi</p>
             </div>
 
             {{-- Transaksi --}}
@@ -100,7 +100,7 @@
             <div class="card lg:col-span-1 space-y-3">
                 <h2 class="font-bold text-gray-800 text-sm uppercase tracking-wider">Akses Cepat</h2>
                 <a href="{{ route('kasir.create') }}"
-                   class="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-semibold text-sm hover:from-emerald-700 hover:to-teal-600 transition shadow-sm">
+                   class="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-sm hover:from-blue-700 hover:to-indigo-700 transition shadow-sm">
                     <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                     </div>
@@ -147,7 +147,7 @@
                         <h2 class="font-bold text-gray-800 text-sm">Stok Menipis <span class="text-gray-400 font-normal">(≤ 5)</span></h2>
                     </div>
                     @if (Auth::user()->isAdmin())
-                        <a href="{{ route('products.index') }}" class="text-xs text-emerald-600 font-semibold hover:underline">Kelola Stok →</a>
+                        <a href="{{ route('products.index') }}" class="text-xs text-blue-600 font-semibold hover:underline">Kelola Stok →</a>
                     @endif
                 </div>
 

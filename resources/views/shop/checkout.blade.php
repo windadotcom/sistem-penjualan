@@ -8,21 +8,21 @@
             <div>
                 <label for="customer_name" class="block text-sm font-semibold text-gray-700 mb-1.5">Nama Lengkap <span class="text-red-500">*</span></label>
                 <input id="customer_name" name="customer_name" value="{{ old('customer_name') }}" required
-                       class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 focus:outline-none transition">
+                       class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none transition">
                 @error('customer_name')<p class="text-xs text-red-500 mt-1">{{ $message }}</p>@enderror
             </div>
 
             <div>
                 <label for="customer_phone" class="block text-sm font-semibold text-gray-700 mb-1.5">No. HP / WhatsApp <span class="text-red-500">*</span></label>
                 <input id="customer_phone" name="customer_phone" value="{{ old('customer_phone') }}" required
-                       class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 focus:outline-none transition">
+                       class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none transition">
                 @error('customer_phone')<p class="text-xs text-red-500 mt-1">{{ $message }}</p>@enderror
             </div>
 
             <div>
                 <label for="customer_address" class="block text-sm font-semibold text-gray-700 mb-1.5">Alamat Pengiriman <span class="text-red-500">*</span></label>
                 <textarea id="customer_address" name="customer_address" rows="3" required
-                          class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 focus:outline-none transition">{{ old('customer_address') }}</textarea>
+                          class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none transition">{{ old('customer_address') }}</textarea>
                 @error('customer_address')<p class="text-xs text-red-500 mt-1">{{ $message }}</p>@enderror
             </div>
 
@@ -31,8 +31,8 @@
                 <div class="grid grid-cols-2 gap-3">
                     @foreach (['COD' => ['🚪', 'Bayar di Tempat', 'COD'], 'Transfer' => ['🏦', 'Transfer Bank', 'Transfer']] as $val => [$icon, $label, $sub])
                         <label class="flex items-center gap-3 border-2 rounded-xl px-4 py-3 cursor-pointer transition
-                                      {{ old('payment_method', 'COD') === $val ? 'border-emerald-500 bg-emerald-50' : 'border-gray-200 hover:border-emerald-300' }}">
-                            <input type="radio" name="payment_method" value="{{ $val }}" class="text-emerald-600 focus:ring-emerald-400"
+                                      {{ old('payment_method', 'COD') === $val ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300' }}">
+                            <input type="radio" name="payment_method" value="{{ $val }}" class="text-blue-600 focus:ring-blue-400"
                                    @checked(old('payment_method', 'COD') === $val)>
                             <div>
                                 <div class="font-semibold text-sm text-gray-800">{{ $icon }} {{ $label }}</div>
@@ -58,7 +58,7 @@
                              alt="{{ $i['product']->name }}"
                              class="w-10 h-10 rounded-lg object-cover border border-gray-100 shrink-0">
                     @else
-                        <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center text-lg shrink-0 border border-gray-100">📦</div>
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-lg shrink-0 border border-gray-100">📦</div>
                     @endif
                     <div class="flex-1 flex justify-between text-sm text-gray-600">
                         <span>{{ $i['product']->name }} × {{ $i['qty'] }}</span>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
             @endforeach
-            <div class="border-t pt-3 flex justify-between font-extrabold text-lg text-emerald-700">
+            <div class="border-t pt-3 flex justify-between font-extrabold text-lg text-blue-700">
                 <span>Total</span>
                 <span>Rp {{ number_format($total, 0, ',', '.') }}</span>
             </div>

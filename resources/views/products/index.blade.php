@@ -25,7 +25,7 @@
                     </svg>
                     <input type="text" name="q" value="{{ request('q') }}"
                            placeholder="Cari nama atau kategori..."
-                           class="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 focus:outline-none transition">
+                           class="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none transition">
                 </div>
                 <button type="submit" class="btn btn-primary">Cari</button>
                 @if(request('q'))
@@ -55,8 +55,18 @@
                                                  alt="{{ $p->name }}"
                                                  class="w-10 h-10 rounded-lg object-cover border border-gray-200 shrink-0">
                                         @else
-                                            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-50 to-teal-100 flex items-center justify-center text-lg shrink-0 border border-gray-100">
-                                                📦
+                                            @php
+                                                $tEmoji = match(strtolower($p->category ?? '')) {
+                                                    'pakaian'   => ['e' => '👕', 'bg' => 'from-blue-50 to-indigo-100'],
+                                                    'celana'    => ['e' => '👖', 'bg' => 'from-violet-50 to-purple-100'],
+                                                    'aksesoris' => ['e' => '👜', 'bg' => 'from-pink-50 to-rose-100'],
+                                                    'sembako'   => ['e' => '🛒', 'bg' => 'from-amber-50 to-yellow-100'],
+                                                    'minuman'   => ['e' => '🥤', 'bg' => 'from-cyan-50 to-sky-100'],
+                                                    default     => ['e' => '📦', 'bg' => 'from-blue-50 to-indigo-100'],
+                                                };
+                                            @endphp
+                                            <div class="w-10 h-10 rounded-lg bg-gradient-to-br {{ $tEmoji['bg'] }} flex items-center justify-center text-lg shrink-0 border border-gray-100">
+                                                {{ $tEmoji['e'] }}
                                             </div>
                                         @endif
                                         <span class="font-medium text-gray-800">{{ $p->name }}</span>
@@ -69,7 +79,7 @@
                                     Rp {{ number_format($p->price, 0, ',', '.') }}
                                 </td>
                                 <td class="text-right">
-                                    <span class="badge {{ $p->stock === 0 ? 'bg-red-100 text-red-700' : ($p->stock <= 5 ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700') }}">
+                                    <span class="badge {{ $p->stock === 0 ? 'bg-red-100 text-red-700' : ($p->stock <= 5 ? 'bg-amber-100 text-amber-700' : 'bg-blue-100 text-blue-700') }}">
                                         {{ $p->stock === 0 ? 'Habis' : $p->stock . ' unit' }}
                                     </span>
                                 </td>
@@ -98,7 +108,7 @@
                                     <div class="flex flex-col items-center gap-2 text-gray-400">
                                         <span class="text-4xl">📭</span>
                                         <p class="font-medium">Belum ada barang</p>
-                                        <a href="{{ route('products.create') }}" class="text-emerald-600 text-sm font-semibold hover:underline">+ Tambah sekarang</a>
+                                        <a href="{{ route('products.create') }}" class="text-blue-600 text-sm font-semibold hover:underline">+ Tambah sekarang</a>
                                     </div>
                                 </td>
                             </tr>

@@ -37,7 +37,7 @@
                 <a href="{{ route('orders.index', ['status' => $s]) }}"
                    class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-semibold transition
                           {{ request('status') === $s
-                              ? 'ring-2 ring-offset-1 ring-emerald-400 ' . $badgeMap[$s]
+                              ? 'ring-2 ring-offset-1 ring-blue-400 ' . $badgeMap[$s]
                               : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 ' . '' }}">
                     <span>{{ $iconMap[$s] }}</span>
                     {{ ucfirst($s) }}
@@ -53,7 +53,7 @@
                     {{-- Header card --}}
                     <div class="flex flex-wrap items-center justify-between gap-3 px-5 py-3.5 border-b border-gray-50 bg-gray-50/60">
                         <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-xl bg-emerald-100 flex items-center justify-center text-base">
+                            <div class="w-9 h-9 rounded-xl bg-blue-100 flex items-center justify-center text-base">
                                 {{ $iconMap[$o->status] ?? '📦' }}
                             </div>
                             <div>
@@ -101,13 +101,13 @@
                         </div>
 
                         {{-- Items --}}
-                        <div class="text-xs text-gray-500 bg-emerald-50 rounded-xl px-3 py-2">
+                        <div class="text-xs text-gray-500 bg-blue-50 rounded-xl px-3 py-2">
                             📦 {{ $o->items->map(fn ($i) => $i->product_name . ' ×' . $i->qty)->join(', ') }}
                         </div>
 
                         {{-- Footer: total + update status --}}
                         <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-gray-100">
-                            <div class="text-lg font-extrabold text-emerald-700">
+                            <div class="text-lg font-extrabold text-blue-700">
                                 Rp {{ number_format($o->total, 0, ',', '.') }}
                             </div>
 
@@ -116,7 +116,7 @@
                                     @csrf
                                     @method('PATCH')
                                     <select name="status"
-                                            class="border border-gray-200 rounded-xl text-xs px-3 py-2 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 focus:outline-none bg-white">
+                                            class="border border-gray-200 rounded-xl text-xs px-3 py-2 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none bg-white">
                                         @foreach (['baru', 'diproses', 'dikirim', 'selesai', 'dibatalkan'] as $s)
                                             <option value="{{ $s }}" @selected($o->status === $s)>
                                                 {{ $iconMap[$s] }} {{ ucfirst($s) }}

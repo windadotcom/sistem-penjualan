@@ -1,9 +1,9 @@
 <x-shop-layout>
     <div class="max-w-lg mx-auto bg-white rounded-2xl shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-r from-emerald-600 to-teal-500 px-6 py-8 text-white text-center">
+        <div class="bg-gradient-to-r from-blue-700 to-indigo-600 px-6 py-8 text-white text-center">
             <div class="text-5xl mb-2">🎉</div>
             <h1 class="text-2xl font-extrabold">Pesanan Berhasil!</h1>
-            <p class="text-emerald-100 text-sm mt-1">No. Pesanan <b>#{{ $sale->id }}</b> — simpan nomor ini</p>
+            <p class="text-blue-100 text-sm mt-1">No. Pesanan <b>#{{ $sale->id }}</b> — simpan nomor ini</p>
         </div>
         <div class="p-6 space-y-4">
             <div class="bg-gray-50 rounded-xl p-4 space-y-2 text-sm">
@@ -13,7 +13,7 @@
                         <span>Rp {{ number_format($i->subtotal, 0, ',', '.') }}</span>
                     </div>
                 @endforeach
-                <div class="flex justify-between font-extrabold text-emerald-700 border-t pt-2 mt-2 text-base">
+                <div class="flex justify-between font-extrabold text-blue-700 border-t pt-2 mt-2 text-base">
                     <span>Total</span>
                     <span>Rp {{ number_format($sale->total, 0, ',', '.') }}</span>
                 </div>

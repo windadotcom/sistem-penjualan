@@ -9,7 +9,7 @@
     <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800&display=swap" rel="stylesheet"/>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased min-h-screen flex flex-col" style="background:#f0fdf8;">
+<body class="font-sans antialiased min-h-screen flex flex-col" style="background:#f0f7ff;">
 
     {{-- ── Top Bar ──────────────────────────────────── --}}
     <header class="sticky top-0 z-50 bg-white border-b border-gray-100" style="box-shadow:0 1px 3px 0 rgb(0 0 0/.07)">
@@ -18,7 +18,7 @@
 
                 {{-- Logo --}}
                 <a href="{{ route('shop.index') }}" class="flex items-center gap-2.5 shrink-0">
-                    <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-sm">
+                    <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-sm">
                         <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
                         </svg>
@@ -34,14 +34,14 @@
                         </svg>
                         <input type="text" name="q" value="{{ request('q') }}"
                                placeholder="Cari produk..."
-                               class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-xl text-sm focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 focus:outline-none transition">
+                               class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-xl text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none transition">
                     </div>
                 </form>
 
                 {{-- Actions --}}
                 <div class="flex items-center gap-2">
                     <a href="{{ route('cart.index') }}"
-                       class="relative flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-4 py-2 rounded-xl transition shadow-sm">
+                       class="relative flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-xl transition shadow-sm">
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
                         </svg>
@@ -81,10 +81,10 @@
         <div class="max-w-6xl mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-400">
             <span>© {{ date('Y') }} <b class="text-gray-600">{{ config('app.name') }}</b>. All rights reserved.</span>
             <div class="flex items-center gap-4">
-                <a href="{{ route('shop.index') }}" class="hover:text-emerald-600 transition">Toko</a>
-                <a href="{{ route('cart.index') }}" class="hover:text-emerald-600 transition">Keranjang</a>
+                <a href="{{ route('shop.index') }}" class="hover:text-blue-600 transition">Toko</a>
+                <a href="{{ route('cart.index') }}" class="hover:text-blue-600 transition">Keranjang</a>
                 @guest
-                    <a href="{{ route('login') }}" class="hover:text-emerald-600 transition">Login</a>
+                    <a href="{{ route('login') }}" class="hover:text-blue-600 transition">Login</a>
                 @endguest
             </div>
         </div>

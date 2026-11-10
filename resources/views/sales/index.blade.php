@@ -36,7 +36,7 @@
                                 </td>
                                 <td>
                                     <div class="flex items-center gap-2">
-                                        <div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-xs font-bold text-emerald-700 shrink-0">
+                                        <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-700 shrink-0">
                                             {{ strtoupper(substr($s->cashier_name, 0, 1)) }}
                                         </div>
                                         <span class="text-sm text-gray-700">{{ $s->cashier_name }}</span>
@@ -47,7 +47,7 @@
                                         {{ $s->items->map(fn ($i) => $i->product_name . ' ×' . $i->qty)->join(', ') }}
                                     </p>
                                 </td>
-                                <td class="text-right font-bold text-emerald-700 whitespace-nowrap">
+                                <td class="text-right font-bold text-blue-700 whitespace-nowrap">
                                     Rp {{ number_format($s->total, 0, ',', '.') }}
                                 </td>
                                 <td class="text-center">
@@ -64,7 +64,7 @@
                                     <div class="flex flex-col items-center gap-2 text-gray-400">
                                         <span class="text-4xl">🧾</span>
                                         <p class="font-medium">Belum ada transaksi</p>
-                                        <a href="{{ route('kasir.create') }}" class="text-emerald-600 text-sm font-semibold hover:underline">Mulai transaksi pertama →</a>
+                                        <a href="{{ route('kasir.create') }}" class="text-blue-600 text-sm font-semibold hover:underline">Mulai transaksi pertama →</a>
                                     </div>
                                 </td>
                             </tr>

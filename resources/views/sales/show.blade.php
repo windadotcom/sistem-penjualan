@@ -29,9 +29,9 @@
         <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
 
             {{-- Header struk --}}
-            <div class="bg-gradient-to-r from-emerald-600 to-teal-500 px-6 py-5 text-white text-center">
+            <div class="bg-gradient-to-r from-blue-700 to-indigo-600 px-6 py-5 text-white text-center">
                 <div class="text-lg font-extrabold tracking-wide">{{ config('app.name', 'TOKO') }}</div>
-                <div class="text-xs text-emerald-100 mt-1">Struk Penjualan</div>
+                <div class="text-xs text-blue-100 mt-1">Struk Penjualan</div>
             </div>
 
             <div class="px-6 py-5 space-y-4">
@@ -62,7 +62,7 @@
 
                 {{-- Total area --}}
                 <div class="border-t-2 border-dashed border-gray-300 pt-3 space-y-1.5">
-                    <div class="flex justify-between text-xl font-extrabold text-emerald-700">
+                    <div class="flex justify-between text-xl font-extrabold text-blue-700">
                         <span>Total</span>
                         <span>Rp {{ number_format($sale->total, 0, ',', '.') }}</span>
                     </div>
@@ -72,7 +72,7 @@
                             <span>Dibayar</span>
                             <span>Rp {{ number_format($sale->paid, 0, ',', '.') }}</span>
                         </div>
-                        <div class="flex justify-between text-sm font-semibold text-emerald-600">
+                        <div class="flex justify-between text-sm font-semibold text-blue-600">
                             <span>Kembalian</span>
                             <span>Rp {{ number_format($sale->paid - $sale->total, 0, ',', '.') }}</span>
                         </div>

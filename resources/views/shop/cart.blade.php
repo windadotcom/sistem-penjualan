@@ -5,7 +5,7 @@
         <div class="bg-white rounded-2xl p-12 text-center">
             <div class="text-5xl mb-3">🛒</div>
             <p class="font-semibold text-gray-600 mb-1">Keranjang masih kosong</p>
-            <a href="{{ route('shop.index') }}" class="text-emerald-600 text-sm font-semibold hover:underline">Mulai belanja →</a>
+            <a href="{{ route('shop.index') }}" class="text-blue-600 text-sm font-semibold hover:underline">Mulai belanja →</a>
         </div>
     @else
         <div class="grid lg:grid-cols-3 gap-5">
@@ -30,7 +30,7 @@
                                                  alt="{{ $i['product']->name }}"
                                                  class="w-12 h-12 rounded-lg object-cover border border-gray-200 shrink-0">
                                         @else
-                                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-50 to-teal-100 flex items-center justify-center text-xl shrink-0 border border-gray-100">
+                                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center text-xl shrink-0 border border-gray-100">
                                                 📦
                                             </div>
                                         @endif
@@ -42,8 +42,8 @@
                                     <form method="POST" action="{{ route('cart.update', $i['product']) }}" class="inline-flex gap-1 items-center">
                                         @csrf @method('PATCH')
                                         <input type="number" name="qty" value="{{ $i['qty'] }}" min="0" max="{{ $i['product']->stock }}"
-                                               class="w-14 border border-gray-200 rounded-lg text-sm text-center py-1.5 focus:border-emerald-400 focus:outline-none">
-                                        <button class="text-xs bg-teal-50 text-teal-700 border border-teal-200 rounded-lg px-2 py-1.5 hover:bg-teal-100 transition">Ubah</button>
+                                               class="w-14 border border-gray-200 rounded-lg text-sm text-center py-1.5 focus:border-blue-400 focus:outline-none">
+                                        <button class="text-xs bg-blue-50 text-blue-700 border border-blue-200 rounded-lg px-2 py-1.5 hover:bg-blue-100 transition">Ubah</button>
                                     </form>
                                 </td>
                                 <td class="text-right px-4 font-bold text-emerald-700">Rp {{ number_format($i['subtotal'], 0, ',', '.') }}</td>
@@ -67,16 +67,16 @@
                     <span>Subtotal</span>
                     <span>Rp {{ number_format($total, 0, ',', '.') }}</span>
                 </div>
-                <div class="border-t pt-3 flex justify-between font-extrabold text-lg text-emerald-700">
+                <div class="border-t pt-3 flex justify-between font-extrabold text-lg text-blue-700">
                     <span>Total</span>
                     <span>Rp {{ number_format($total, 0, ',', '.') }}</span>
                 </div>
                 <a href="{{ route('checkout.show') }}"
-                   class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-700 hover:to-teal-600 text-white font-bold rounded-xl py-3 text-sm transition shadow-sm">
+                   class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl py-3 text-sm transition shadow-sm">
                     Lanjut Checkout
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </a>
-                <a href="{{ route('shop.index') }}" class="block text-center text-xs text-gray-400 hover:text-emerald-600 transition">← Lanjut belanja</a>
+                <a href="{{ route('shop.index') }}" class="block text-center text-xs text-gray-400 hover:text-blue-600 transition">← Lanjut belanja</a>
             </div>
         </div>
     @endif

@@ -8,7 +8,7 @@
     <input id="name" name="name" type="text"
            value="{{ old('name', $product->name ?? '') }}"
            required autofocus placeholder="Contoh: Beras Premium 5kg"
-           class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 focus:outline-none transition">
+           class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none transition">
     <x-input-error :messages="$errors->get('name')" class="mt-1.5" />
 </div>
 
@@ -18,7 +18,7 @@
     <input id="category" name="category" type="text"
            value="{{ old('category', $product->category ?? '') }}"
            placeholder="Contoh: Sembako, Minuman, Snack..."
-           class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 focus:outline-none transition">
+           class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none transition">
     <x-input-error :messages="$errors->get('category')" class="mt-1.5" />
 </div>
 
@@ -33,7 +33,7 @@
             <input id="price" name="price" type="number" min="0"
                    value="{{ old('price', $product->price ?? '') }}"
                    required placeholder="0"
-                   class="w-full pl-10 pr-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 focus:outline-none transition">
+                   class="w-full pl-10 pr-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none transition">
         </div>
         <x-input-error :messages="$errors->get('price')" class="mt-1.5" />
     </div>
@@ -45,7 +45,7 @@
             <input id="stock" name="stock" type="number" min="0"
                    value="{{ old('stock', $product->stock ?? 0) }}"
                    required placeholder="0"
-                   class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 focus:outline-none transition">
+                   class="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none transition">
             <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-gray-400">unit</span>
         </div>
         <x-input-error :messages="$errors->get('stock')" class="mt-1.5" />
@@ -84,7 +84,7 @@
         @dragover.prevent="dragging = true"
         @dragleave.prevent="dragging = false"
         @drop.prevent="handleDrop($event)"
-        :class="dragging ? 'border-emerald-400 bg-emerald-50' : 'border-gray-300 bg-gray-50 hover:bg-emerald-50 hover:border-emerald-300'"
+        :class="dragging ? 'border-blue-400 bg-blue-50' : 'border-gray-300 bg-gray-50 hover:bg-blue-50 hover:border-blue-300'"
         class="relative border-2 border-dashed rounded-xl p-6 text-center transition-all cursor-pointer"
         @click="$refs.fileInput.click()">
 

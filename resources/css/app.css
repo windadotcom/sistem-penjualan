@@ -1,20 +1,20 @@
+/* ── Google Fonts via Bunny ─────────────────────────────────────── */
+@import url('https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ── Google Fonts via Bunny ─────────────────────────────────────── */
-@import url('https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800&display=swap');
-
 /* ── CSS Custom Properties (Design Tokens) ─────────────────────── */
 :root {
-    --brand-50:  #ecfdf5;
-    --brand-100: #d1fae5;
-    --brand-200: #a7f3d0;
-    --brand-400: #34d399;
-    --brand-500: #10b981;
-    --brand-600: #059669;
-    --brand-700: #047857;
-    --brand-800: #065f46;
+    --brand-50:  #eff6ff;
+    --brand-100: #dbeafe;
+    --brand-200: #bfdbfe;
+    --brand-400: #60a5fa;
+    --brand-500: #3b82f6;
+    --brand-600: #2563eb;
+    --brand-700: #1d4ed8;
+    --brand-800: #1e40af;
     --sidebar-w: 256px;
 }
 
@@ -23,22 +23,22 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Plus Jakarta Sans', 'Figtree', ui-sans-serif, system-ui, sans-serif;
-    background-color: #f0fdf8;
+    background-color: #f0f7ff;
     color: #1e293b;
     -webkit-font-smoothing: antialiased;
 }
 
-/* ── Tailwind colour overrides (theme → brand green) ─────────────── */
-.bg-gray-100  { background-color: #f0fdf8 !important; }
+/* ── Tailwind colour overrides (theme → brand blue) ─────────────── */
+.bg-gray-100  { background-color: #f0f7ff !important; }
 .bg-gray-800  { background-color: var(--brand-600) !important; }
 .hover\:bg-gray-700:hover,
 .focus\:bg-gray-700:focus    { background-color: var(--brand-700) !important; }
 .active\:bg-gray-900:active  { background-color: var(--brand-800) !important; }
 
-.bg-indigo-600              { background-color: #0d9488 !important; }
-.hover\:bg-indigo-500:hover { background-color: #0f766e !important; }
-.text-indigo-600            { color: var(--brand-700) !important; }
-.border-indigo-400          { border-color: var(--brand-500) !important; }
+.bg-indigo-600              { background-color: var(--brand-600) !important; }
+.hover\:bg-indigo-500:hover { background-color: var(--brand-700) !important; }
+.text-indigo-600            { color: var(--brand-600) !important; }
+.border-indigo-400          { border-color: var(--brand-400) !important; }
 
 /* ── Navigation top-bar accent ──────────────────────────────────── */
 nav.bg-white {
@@ -79,7 +79,7 @@ nav.bg-white {
 
 /* ── Table styles ─────────────────────────────────────────────── */
 .data-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
-.data-table thead tr { background: #f8fffe; border-bottom: 2px solid #e2e8f0; }
+.data-table thead tr { background: #f8faff; border-bottom: 2px solid #e2e8f0; }
 .data-table thead th {
     padding: .625rem .875rem;
     font-size: .7rem;
@@ -94,7 +94,7 @@ nav.bg-white {
     transition: background .15s;
 }
 .data-table tbody tr:last-child { border-bottom: none; }
-.data-table tbody tr:hover { background: #f8fffe; }
+.data-table tbody tr:hover { background: #f8faff; }
 .data-table tbody td { padding: .75rem .875rem; color: #334155; }
 
 /* ── Badge ───────────────────────────────────────────────────── */
@@ -126,13 +126,13 @@ nav.bg-white {
     text-decoration: none;
 }
 .btn-primary {
-    background: linear-gradient(135deg, var(--brand-600) 0%, #0d9488 100%);
+    background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-700) 100%);
     color: #fff;
-    box-shadow: 0 2px 8px 0 rgb(5 150 105 / .35);
+    box-shadow: 0 2px 8px 0 rgb(37 99 235 / .35);
 }
 .btn-primary:hover {
-    background: linear-gradient(135deg, var(--brand-700) 0%, #0f766e 100%);
-    box-shadow: 0 4px 14px 0 rgb(5 150 105 / .45);
+    background: linear-gradient(135deg, var(--brand-700) 0%, var(--brand-800) 100%);
+    box-shadow: 0 4px 14px 0 rgb(37 99 235 / .45);
     transform: translateY(-1px);
     color: #fff;
 }
@@ -168,8 +168,8 @@ nav.bg-white {
 }
 .form-input:focus {
     outline: none;
-    border-color: var(--brand-500);
-    box-shadow: 0 0 0 3px rgb(16 185 129 / .15);
+    border-color: var(--brand-400);
+    box-shadow: 0 0 0 3px rgb(59 130 246 / .15);
 }
 
 /* ── Flash / Alert ────────────────────────────────────────────── */
@@ -183,9 +183,9 @@ nav.bg-white {
     font-weight: 500;
 }
 .alert-success {
-    background: #ecfdf5;
-    color: #065f46;
-    border: 1px solid #a7f3d0;
+    background: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
 }
 .alert-error {
     background: #fef2f2;
