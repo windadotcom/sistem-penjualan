@@ -17,7 +17,7 @@
 
         {{-- ── Filter Form ─────────────────────────────── --}}
         <div class="card">
-            <form method="GET" class="flex flex-wrap gap-4 items-end">
+            <form method="GET" action="{{ route('reports.index') }}" class="flex flex-wrap gap-4 items-end">
                 <div>
                     <label for="from" class="block text-xs font-semibold text-gray-600 mb-1.5">Dari Tanggal</label>
                     <input id="from" type="date" name="from" value="{{ request('from') }}"
@@ -25,7 +25,7 @@
                 </div>
                 <div>
                     <label for="to" class="block text-xs font-semibold text-gray-600 mb-1.5">Sampai Tanggal</label>
-                    <input id="to" type="date" name="to" value="{{ request('to') }}"
+                    <input id="to" type="date" name="to" value="{{ request('to') }}" min="{{ request('from') }}"
                            class="border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none transition">
                 </div>
                 <button type="submit" class="btn btn-primary">
@@ -38,6 +38,9 @@
                     <a href="{{ route('reports.index') }}" class="btn btn-secondary">Reset</a>
                 @endif
             </form>
+            @if ($errors->any())
+                <p class="text-sm text-red-600 mt-3">{{ $errors->first() }}</p>
+            @endif
         </div>
 
         {{-- ── Summary Card ─────────────────────────────── --}}
@@ -57,7 +60,11 @@
                     </div>
                 </div>
                 <p class="text-xs text-blue-600 font-medium mt-2">
-                    {{ request('from') || request('to') ? 'Periode dipilih' : 'Semua waktu' }}
+                    @if (request('from') || request('to'))
+                        {{ request('from') ? \Carbon\Carbon::parse(request('from'))->format('d/m/Y') : 'Awal' }} – {{ request('to') ? \Carbon\Carbon::parse(request('to'))->format('d/m/Y') : 'Sekarang' }}
+                    @else
+                        Semua waktu
+                    @endif
                 </p>
             </div>
 
