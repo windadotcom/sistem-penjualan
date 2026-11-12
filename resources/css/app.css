@@ -19,7 +19,10 @@
 }
 
 /* ── Base ───────────────────────────────────────────────────────── */
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+    font-size: 18px; /* ukuran dasar: ubah angka ini untuk membesar/mengecilkan semua tulisan */
+}
 
 body {
     font-family: 'Plus Jakarta Sans', 'Figtree', ui-sans-serif, system-ui, sans-serif;
@@ -44,6 +47,60 @@ body {
 nav.bg-white {
     border-top: 3px solid var(--brand-500);
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / .07), 0 1px 2px -1px rgb(0 0 0 / .07);
+}
+
+/* ── Navigasi lebih besar ───────────────────────────────────────── */
+nav a,
+nav button {
+    font-size: 1rem;
+}
+nav .text-xs,
+nav .text-sm {
+    font-size: 1rem !important;
+}
+nav a svg,
+nav button svg {
+    width: 1.2rem !important;
+    height: 1.2rem !important;
+}
+nav a {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+/* ── Nama toko (hanya diperbesar, bukan tab) ──────────────────── */
+.brand-name {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: #0f172a;
+    line-height: 1;
+}
+
+/* ── Menu navigasi berbentuk tab (hanya wadah .menu-tabs) ─────── */
+.menu-tabs {
+    gap: .5rem;
+    align-items: center;
+}
+.menu-tabs > a {
+    margin-left: 0 !important;
+    padding: .55rem 1rem !important;
+    border: 1px solid transparent !important;
+    border-radius: .75rem;
+    font-weight: 600;
+    color: #475569;
+    transition: background .15s, color .15s, border-color .15s;
+}
+.menu-tabs > a:hover {
+    background: #eff6ff;
+    color: var(--brand-700);
+    border-color: var(--brand-100) !important;
+}
+.menu-tabs > a.border-indigo-400 {
+    background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-700) 100%);
+    color: #fff !important;
+    border-color: var(--brand-700) !important;
+    box-shadow: 0 2px 8px 0 rgb(37 99 235 / .30);
 }
 
 /* ── Card defaults ──────────────────────────────────────────────── */
@@ -71,31 +128,45 @@ nav.bg-white {
 
 /* ── Page section heading ─────────────────────────────────────── */
 .page-heading {
-    font-size: 1.25rem;
+    font-size: 1.625rem;
     font-weight: 700;
     color: #0f172a;
     letter-spacing: -.01em;
 }
 
 /* ── Table styles ─────────────────────────────────────────────── */
-.data-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
-.data-table thead tr { background: #f8faff; border-bottom: 2px solid #e2e8f0; }
+.data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 1rem;
+    border: 1px solid #dbeafe;
+    border-radius: .875rem;
+    overflow: hidden;
+}
 .data-table thead th {
-    padding: .625rem .875rem;
-    font-size: .7rem;
+    background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-700) 100%);
+    color: #fff;
+    padding: .9rem 1rem;
+    font-size: .8rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: .06em;
-    color: #64748b;
+    letter-spacing: .08em;
+    text-align: left;
     white-space: nowrap;
 }
-.data-table tbody tr {
-    border-bottom: 1px solid #f1f5f9;
-    transition: background .15s;
+.data-table thead th.text-right  { text-align: right; }
+.data-table thead th.text-center { text-align: center; }
+.data-table tbody td {
+    padding: .9rem 1rem;
+    color: #334155;
+    border-bottom: 1px solid #e8f0fe;
+    vertical-align: middle;
 }
-.data-table tbody tr:last-child { border-bottom: none; }
-.data-table tbody tr:hover { background: #f8faff; }
-.data-table tbody td { padding: .75rem .875rem; color: #334155; }
+.data-table tbody tr:nth-child(even) { background: #f6faff; }
+.data-table tbody tr { transition: background .15s; }
+.data-table tbody tr:hover { background: #e8f1ff; }
+.data-table tbody tr:last-child td { border-bottom: none; }
 
 /* ── Badge ───────────────────────────────────────────────────── */
 .badge {
@@ -104,7 +175,7 @@ nav.bg-white {
     gap: .25rem;
     padding: .2rem .65rem;
     border-radius: 9999px;
-    font-size: .7rem;
+    font-size: .75rem;
     font-weight: 600;
     letter-spacing: .02em;
     white-space: nowrap;
@@ -117,7 +188,7 @@ nav.bg-white {
     gap: .4rem;
     padding: .5rem 1.125rem;
     border-radius: .625rem;
-    font-size: .8125rem;
+    font-size: .875rem;
     font-weight: 600;
     letter-spacing: .02em;
     transition: all .2s;
@@ -162,7 +233,7 @@ nav.bg-white {
     border: 1.5px solid #d1d5db;
     border-radius: .625rem;
     background: #fff;
-    font-size: .875rem;
+    font-size: .9375rem;
     color: #1e293b;
     transition: border-color .2s, box-shadow .2s;
 }
@@ -179,7 +250,7 @@ nav.bg-white {
     gap: .75rem;
     padding: .875rem 1.125rem;
     border-radius: .75rem;
-    font-size: .875rem;
+    font-size: .9375rem;
     font-weight: 500;
 }
 .alert-success {
