@@ -41,9 +41,23 @@
                     <span>No. Transaksi: <b class="text-gray-700">#{{ $sale->id }}</b></span>
                     <span>{{ $sale->created_at->format('d/m/Y H:i') }}</span>
                 </div>
-                <div class="text-xs text-gray-500 pb-3 border-b border-dashed border-gray-200">
-                    Kasir: <b class="text-gray-700">{{ $sale->user->name }}</b>
-                </div>
+                
+                <div class="text-xs text-gray-500 pb-3 border-b border-dashed border-gray-200 space-y-0.5">
+                    @if ($sale->source === 'kasir')
+                        <div>Kasir: <b class="text-gray-700">{{ $sale->user?->name ?? '-' }}</b></div>
+                    @else
+                        <div>Pelanggan: <b class="text-gray-700">{{ $sale->customer_name ?? '-' }}</b></div>
+                    @if ($sale->customer_phone)
+                        <div>Telp: <b class="text-gray-700">{{ $sale->customer_phone }}</b></div>
+                    @endif
+                    @if ($sale->customer_address)
+                        <div>Alamat: <b class="text-gray-700">{{ $sale->customer_address }}</b></div>
+                    @endif
+                    @if ($sale->payment_method)
+                        <div>Pembayaran: <b class="text-gray-700">{{ ucfirst($sale->payment_method) }}</b></div>
+                    @endif
+                @endif
+            </div>
 
                 {{-- Item list --}}
                 <div class="space-y-2">
