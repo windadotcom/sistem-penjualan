@@ -4,13 +4,26 @@
             <h1 class="page-heading">Laporan Penjualan</h1>
             <p class="text-xs text-gray-500 mt-0.5">Rekap transaksi berdasarkan rentang tanggal</p>
         </div>
-        <a href="{{ route('reports.csv', request()->query()) }}"
-           class="btn btn-secondary">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-            </svg>
-            Unduh CSV
-        </a>
+        <div class="flex flex-wrap gap-2">
+            <a href="{{ route('reports.pdf', request()->query()) }}" class="btn btn-secondary">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Unduh PDF
+            </a>
+            <a href="{{ route('reports.excel', request()->query()) }}" class="btn btn-secondary">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Unduh Excel
+            </a>
+            <a href="{{ route('reports.csv', request()->query()) }}" class="btn btn-secondary">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Unduh CSV
+            </a>
+        </div>
     </x-slot>
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">

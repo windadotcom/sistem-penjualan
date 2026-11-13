@@ -30,12 +30,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/transaksi/{sale}', [SaleController::class, 'show'])->name('sales.show');
 
     // Hanya admin
-    Route::middleware('role:admin')->group(function () {
+        Route::middleware('role:admin')->group(function () {
         Route::resource('products', ProductController::class)->except('show');
         Route::get('/pesanan', [OrderController::class, 'index'])->name('orders.index');
         Route::patch('/pesanan/{sale}', [OrderController::class, 'update'])->name('orders.update');
         Route::get('/laporan', [ReportController::class, 'index'])->name('reports.index');
         Route::get('/laporan/csv', [ReportController::class, 'csv'])->name('reports.csv');
+        Route::get('/laporan/pdf', [ReportController::class, 'pdf'])->name('reports.pdf');
+        Route::get('/laporan/excel', [ReportController::class, 'excel'])->name('reports.excel');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

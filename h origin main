@@ -1,0 +1,5 @@
+[33mbf5a6bb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m fix: struk pesanan online error saat kasir kosong
+[33m0caaf35[m[33m ([m[1;31morigin/main[m[33m)[m Perbesar nama toko dan rapikan tampilan
+[33mffbb10c[m Perbaiki filter dan CSV laporan, zona waktu Jakarta, tambah diagram database
+[33ma78c421[m feat: ganti tema hijau → biru, nama toko Blue Shop, tambah produk fashion
+[33mcb79c24[m Commit pertama: sistem penjualan Laravel

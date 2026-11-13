@@ -280,3 +280,29 @@ nav a {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
 ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ── Layar sedang (panel VS Code, laptop kecil) ─────────────────── */
+@media (max-width: 1280px) {
+    html { font-size: 15px; }
+    .brand-name { font-size: 1.9rem; }
+    .menu-tabs { gap: .25rem; }
+    .menu-tabs > a { padding: .45rem .7rem !important; }
+}
+
+/* ── Tablet ─────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    html { font-size: 14px; }
+    .brand-name { font-size: 1.7rem; }
+}
+
+/* ── HP ─────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    html { font-size: 13px; }
+    .brand-name { font-size: 1.5rem; }
+    .page-heading { font-size: 1.25rem; }
+    .product-price { font-size: .95rem !important; }
+}
+
+/* ── Menu tidak boleh turun baris ───────────────────────────────── */
+.menu-tabs > a,
+nav a { white-space: nowrap; }

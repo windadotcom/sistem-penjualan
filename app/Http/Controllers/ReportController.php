@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SalesExport;
 use App\Models\Sale;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
 {
@@ -51,6 +54,42 @@ class ReportController extends Controller
         }, 'laporan-penjualan-' . now()->format('Ymd') . '.csv', [
             'Content-Type' => 'text/csv; charset=UTF-8',
         ]);
+    }
+
+    public function pdf(Request $request)
+    {
+        $request->validate([
+            'from' => ['nullable', 'date'],
+            'to'   => ['nullable', 'date', 'after_or_equal:from'],
+        ]);
+
+        $sales = $this->query($request)->with(['items', 'user'])->latest()->get();
+
+        return Pdf::loadView('reports.pdf', [
+                'sales'   => $sales,
+                'total'   => $sales->sum('total'),
+                'count'   => $sales->count(),
+                'average' => $sales->count() ? round($sales->sum('total') / $sales->count()) : 0,
+                'from'    => $request->from,
+                'to'      => $request->to,
+            ])
+            ->setPaper('a4', 'portrait')
+            ->download('laporan-penjualan-' . now()->format('Ymd') . '.pdf');
+    }
+
+    public function excel(Request $request)
+    {
+        $request->validate([
+            'from' => ['nullable', 'date'],
+            'to'   => ['nullable', 'date', 'after_or_equal:from'],
+        ]);
+
+        $sales = $this->query($request)->with(['items', 'user'])->latest()->get();
+
+        return Excel::download(
+            new SalesExport($sales),
+            'laporan-penjualan-' . now()->format('Ymd') . '.xlsx'
+        );
     }
 
     private function query(Request $request)
