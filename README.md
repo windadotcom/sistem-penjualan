@@ -1,6 +1,6 @@
-# Blue Shop - Sistem Penjualan
+# Sistem Informasi Penjualan
 
-Aplikasi web sistem penjualan berbasis Laravel untuk mengelola produk, transaksi kasir, pesanan online, dan pencetakan struk.
+Sistem Informasi Penjualan untuk toko **Blue Shop**, berbasis Laravel, untuk mengelola produk, transaksi kasir, pesanan online, laporan, dan pencetakan struk.
 
 ## Fitur
 
