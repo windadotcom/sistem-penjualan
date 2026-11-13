@@ -12,6 +12,27 @@ Aplikasi web sistem penjualan berbasis Laravel untuk mengelola produk, transaksi
 - Riwayat penjualan beserta detail item per transaksi
 
 ## Teknologi
+## Screenshot
+
+### Login
+
+![Halaman login](docs/login.png)
+
+### Dashboard
+
+![Dashboard](docs/dashboard.png)
+
+### Kasir
+
+![Halaman kasir](docs/kasir.png)
+
+### Struk
+
+![Struk transaksi](docs/struk.png)
+
+## ERD
+
+![ERD sistem penjualan](docs/erd.png)
 
 - Laravel 12
 - PHP 8.2
