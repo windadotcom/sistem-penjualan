@@ -29,7 +29,7 @@ class SalesExport implements FromCollection, WithHeadings, WithMapping, ShouldAu
             $sale->cashier_name,
             $sale->items->map(fn ($i) => $i->product_name . ' x' . $i->qty)->join(', '),
             $sale->total,
-            $sale->paid,
+            $sale->source === 'kasir' ? $sale->paid : '-',
         ];
     }
 }

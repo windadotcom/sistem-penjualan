@@ -46,7 +46,7 @@ class ReportController extends Controller
                     $s->cashier_name,
                     $s->items->map(fn ($i) => $i->product_name . ' x' . $i->qty)->join(', '),
                     $s->total,
-                    $s->paid,
+                    $s->source === 'kasir' ? $s->paid : '-',
                 ], ';', '"', '\\');
             }
 
