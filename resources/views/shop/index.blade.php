@@ -112,4 +112,19 @@
 
     <div>{{ $products->links() }}</div>
 
+    {{-- ── Tombol Login / Kelola Barang (terlihat di HP) ── --}}
+    <div class="fixed bottom-4 right-4 z-50">
+        @auth
+            <a href="{{ auth()->user()->role === 'admin' ? route('products.index') : route('dashboard') }}"
+               class="px-4 py-3 rounded-full bg-blue-600 text-white text-sm font-semibold shadow-lg">
+                {{ auth()->user()->role === 'admin' ? 'Kelola Barang' : 'Dashboard' }}
+            </a>
+        @else
+            <a href="{{ route('login') }}"
+               class="px-4 py-3 rounded-full bg-blue-600 text-white text-sm font-semibold shadow-lg">
+                Masuk
+            </a>
+        @endauth
+    </div>
+
 </x-shop-layout>
