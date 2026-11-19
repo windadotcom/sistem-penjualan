@@ -2,16 +2,43 @@
 
 Sistem Informasi Penjualan untuk toko **Blue Shop**, berbasis Laravel, untuk mengelola produk, transaksi kasir, pesanan online, laporan, dan pencetakan struk.
 
+**Demo online:** https://blueshop.42web.io
+
 ## Fitur
 
-- Login dan pengelolaan akun dengan peran (role) pengguna
-- Manajemen produk: nama, kategori, harga, stok, dan gambar
+- Login dengan 2 peran: **admin** dan **kasir**
+- Manajemen produk (CRUD): nama, kategori, harga, stok, dan gambar
+- Pencarian produk dan filter kategori, dilengkapi pagination
 - Transaksi kasir dengan perhitungan total, jumlah dibayar, dan kembalian
-- Pesanan online dengan data pelanggan (nama, telepon, alamat) dan metode pembayaran
+- Toko online: keranjang, checkout, dan pesanan dengan data pelanggan (nama, telepon, alamat) serta metode pembayaran
 - Struk transaksi yang bisa dicetak, untuk transaksi kasir maupun pesanan online
 - Riwayat penjualan beserta detail item per transaksi
+- Laporan penjualan dengan filter tanggal, dapat diunduh dalam format **PDF, Excel, dan CSV**
+- Tampilan responsif, tombol login tersedia juga di HP
 
-## Teknologi
+## Hak Akses
+
+| Fitur | Admin | Kasir |
+|-------|:-----:|:-----:|
+| Kasir dan transaksi | ✅ | ✅ |
+| Struk dan riwayat | ✅ | ✅ |
+| Kelola produk (tambah, ubah, hapus) | ✅ | ❌ |
+| Kelola pesanan online | ✅ | ❌ |
+| Laporan dan unduh PDF/Excel/CSV | ✅ | ❌ |
+
+## Akun Demo
+
+| Peran | Email | Password |
+|-------|-------|----------|
+| Admin | `admin@blueshop.test` | `Admin12345` |
+| Kasir | `kasir@blueshop.test` | `Admin12345` |
+
+> Akun ini hanya untuk keperluan demo dan penilaian.
+
+## Video Demo
+
+Tonton demo aplikasi di sini: **ISI_LINK_VIDEO**
+
 ## Screenshot
 
 ### Login
@@ -34,11 +61,14 @@ Sistem Informasi Penjualan untuk toko **Blue Shop**, berbasis Laravel, untuk men
 
 ![ERD sistem penjualan](docs/erd.png)
 
+## Teknologi
+
 - Laravel 12
 - PHP 8.2
 - MySQL
 - Vite dan Tailwind CSS
 - Node.js dan npm
+- barryvdh/laravel-dompdf (ekspor PDF) dan maatwebsite/excel (ekspor Excel)
 
 ## Struktur Database
 
@@ -46,7 +76,7 @@ Tabel utama aplikasi:
 
 | Tabel | Fungsi |
 |-------|--------|
-| `users` | Akun pengguna dan peran |
+| `users` | Akun pengguna dan peran (`admin` atau `kasir`) |
 | `products` | Data produk dan stok |
 | `sales` | Data transaksi (kasir atau online) |
 | `sale_items` | Rincian barang pada setiap transaksi |
@@ -98,7 +128,15 @@ Tabel lain (`sessions`, `cache`, `jobs`, `migrations`, dan sebagainya) adalah ta
    php artisan storage:link
    ```
 
-6. Jalankan aplikasi pada dua terminal
+6. Buat akun admin dan kasir. Jalankan SQL ini di phpMyAdmin (tab **SQL**, database `sistem_penjualan`). Password keduanya adalah `Admin12345`:
+
+   ```sql
+   INSERT INTO users (name, email, password, role, created_at, updated_at) VALUES
+   ('Admin', 'admin@blueshop.test', '$2y$10$17WWa35J5SLXt3Evyg64x.4PPtn5xZKy2jOaxqserbdzv7T6XVqX2', 'admin', NOW(), NOW()),
+   ('Kasir', 'kasir@blueshop.test', '$2y$10$17WWa35J5SLXt3Evyg64x.4PPtn5xZKy2jOaxqserbdzv7T6XVqX2', 'kasir', NOW(), NOW());
+   ```
+
+7. Jalankan aplikasi pada dua terminal
 
    ```bash
    php artisan serve
@@ -108,7 +146,7 @@ Tabel lain (`sessions`, `cache`, `jobs`, `migrations`, dan sebagainya) adalah ta
    npm run dev
    ```
 
-7. Buka `http://127.0.0.1:8000` di browser.
+8. Buka `http://127.0.0.1:8000` di browser, lalu login lewat tombol **Masuk** di pojok kanan atas.
 
 ## Catatan
 
