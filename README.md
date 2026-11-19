@@ -35,10 +35,6 @@ Sistem Informasi Penjualan untuk toko **Blue Shop**, berbasis Laravel, untuk men
 
 > Akun ini hanya untuk keperluan demo dan penilaian.
 
-## Video Demo
-
-Tonton demo aplikasi di sini: **ISI_LINK_VIDEO**
-
 ## Screenshot
 
 ### Login
